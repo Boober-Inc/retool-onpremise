@@ -110,9 +110,6 @@ Resources:
             Value: !Join ['', ['{{resolve:secretsmanager:', !Ref RetoolEncryptionKeySecret, ':SecretString:password}}' ]]
           - Name: LICENSE_KEY
             Value: "EXPIRED-LICENSE-KEY-TRIAL"
-          # Remove below when serving Retool over https
-          - Name: COOKIE_INSECURE
-            Value: "true"
         PortMappings:
         - ContainerPort: '3000'
           HostPort: '80'
@@ -160,6 +157,7 @@ Resources:
             Value: !Join ['', ['{{resolve:secretsmanager:', !Ref RetoolEncryptionKeySecret, ':SecretString:password}}' ]]
           - Name: LICENSE_KEY
             Value: "EXPIRED-LICENSE-KEY-TRIAL"
+
         Command: ["./docker_scripts/start_api.sh"]
 
   RetoolJWTSecret:
