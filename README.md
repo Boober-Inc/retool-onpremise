@@ -87,7 +87,7 @@ Spin up a new EC2 instance. If using AWS, use the following steps:
 
 1. Click **Launch Instance** from the EC2 dashboard.
 1. Click **Select** for an instance of Ubuntu `16.04` or higher.
-1. Select an instance type of at least `t3.medium` and click **Next**.
+1. Select an instance type of at least `t3.large` and click **Next**.
 1. Ensure you select the VPC that also includes the databases / API’s you will want to connect to and click **Next**.
 1. Increase the storage size to `60` GB or higher and click **Next**.
 1. Optionally add some Tags (e.g. `app = retool`) and click **Next**. This makes it easier to find if you have a lot of instances.
@@ -113,6 +113,8 @@ Spin up a new EC2 instance. If using AWS, use the following steps:
 1. Run `sudo docker-compose ps` to make sure all the containers are up and running.
 1. Navigate to your server's IP address in a web browser. Retool should now be running on port `3000`.
 1. Click Sign Up, since we're starting from a clean slate. The first user to create an account on an instance becomes the administrator.
+
+![A diagram of the Retool instance running in your VPC](https://d3399nw8s4ngfo.cloudfront.net/docs/7aff03f8-88d6-4e4b-9dbf-631850d64dc0.png)
 
 ### GCP Deploy With Compute Engine Virtual Machine
 
@@ -344,7 +346,7 @@ We provide Fargate template files supporting [public](/cloudformation/fargate.ya
 
 ## Additional Resources
 
-**For details on additional features like SAML SSO, gRPC, custom certs, and more, visit our [docs](https://docs.retool.com/docs).**
+**For details on additional features like SAML SSO, gRPC, custom certs, retooldb, and more, visit our [docs](https://docs.retool.com/docs).**
 
 ### Environment Variables
 
