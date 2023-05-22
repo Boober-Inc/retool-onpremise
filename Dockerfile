@@ -1,3 +1,3 @@
-FROM tryretool/backend:2.119
+FROM tryretool/backend:latest-enterprise
 
 CMD ./docker_scripts/start_api.sh
