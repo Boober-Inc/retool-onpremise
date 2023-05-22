@@ -69,11 +69,18 @@ spec:
         - containerPort: 3000
         resources:
           limits:
-            memory: 2048M
+            memory: 4096M
           requests:
             cpu: "1"
-            memory: 1024M
+            memory: 2048M
+        volumeMounts:
+        - name: retool-pv
+          mountPath: /retool_backend/pv-data
       restartPolicy: Always
+      volumes:
+      - name: retool-pv
+        persistentVolumeClaim:
+          claimName: retool-pvc
 ---
 apiVersion: v1
 kind: Service
@@ -89,3 +96,14 @@ spec:
     targetPort: 3000
   selector:
     app: api
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: retool-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
